@@ -9,20 +9,20 @@
         function setDownloadUrl() {
             var userAgent = navigator.userAgent;
             var downloadUrlElement = document.getElementById('download_url');
+            var baseUrl = 'https://github.com/fire2a/fire-analytics-qgis-processing-toolbox-plugin/releases/download/v0.4.1/fireanalyticstoolbox_v0.4.1';
 
+            var downloadUrl;
             if (/Windows/i.test(userAgent)) {
-                downloadUrlElement.textContent = 'https://example.com/download/windows/fireanalyticstoolbox_v0.4.1.zip';
+                downloadUrl = baseUrl + '_Windows.zip';
             } else if (/Mac/i.test(userAgent)) {
-                downloadUrlElement.textContent = 'https://example.com/download/mac/fireanalyticstoolbox_v0.4.1.zip';
+                downloadUrl = baseUrl + '_macOS.zip';
             } else if (/Linux/i.test(userAgent)) {
-                downloadUrlElement.textContent = 'https://example.com/download/linux/fireanalyticstoolbox_v0.4.1.zip';
-            } else if (/Android/i.test(userAgent)) {
-                downloadUrlElement.textContent = 'https://example.com/download/android/fireanalyticstoolbox_v0.4.1.zip';
-            } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
-                downloadUrlElement.textContent = 'https://example.com/download/ios/fireanalyticstoolbox_v0.4.1.zip';
+                downloadUrl = baseUrl + '_Linux.zip';
             } else {
-                downloadUrlElement.textContent = 'https://github.com/fire2a/fire-analytics-qgis-processing-toolbox-plugin/releases/download/v0.4.1/fireanalyticstoolbox_v0.4.1.zip';
+                downloadUrl = baseUrl + 'nope.zip';
             }
+
+            downloadUrlElement.textContent = downloadUrl;
         }
 
         // Set the download URL when the page loads
@@ -60,3 +60,4 @@
     </plugins>
 </body>
 </html>
+
